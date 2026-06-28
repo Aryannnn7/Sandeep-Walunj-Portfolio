@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Sandip Walunj</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --ink: #173f39;
+            --muted: #647a74;
+            --teal: #0f8f7f;
+            --teal-dark: #0a6f64;
+            --blue: #2563eb;
+            --coral: #e47757;
+            --surface: rgba(255, 255, 255, 0.76);
+            --border: rgba(23, 63, 57, 0.12);
+            --shadow: 0 24px 70px rgba(15, 76, 68, 0.14);
+            --radius: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Outfit", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(20, 184, 166, 0.18), transparent 36%),
+                radial-gradient(circle at bottom right, rgba(228, 119, 87, 0.16), transparent 34%),
+                linear-gradient(135deg, #f5fbf8, #fff8f4);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(15, 143, 127, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15, 143, 127, 0.05) 1px, transparent 1px);
+            background-size: 34px 34px;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        .shell {
+            position: relative;
+            z-index: 1;
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 32px 0;
+        }
+
+        .topbar,
+        .card,
+        .login-card {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 18px 22px;
+            border-radius: var(--radius);
+            margin-bottom: 22px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 16px;
+            color: #fff;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--teal), var(--coral));
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .brand p,
+        .section-note {
+            margin: 4px 0 0;
+            color: var(--muted);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 0;
+            border-radius: 14px;
+            padding: 12px 16px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--teal), var(--coral));
+            box-shadow: 0 14px 28px rgba(15, 143, 127, 0.18);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 34px rgba(15, 143, 127, 0.26);
+        }
+
+        .btn.secondary {
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--border);
+            box-shadow: none;
+        }
+
+        .btn.small {
+            padding: 8px 11px;
+            border-radius: 11px;
+            font-size: 0.88rem;
+        }
+
+        .login-wrap {
+            display: grid;
+            place-items: center;
+            min-height: calc(100vh - 64px);
+        }
+
+        .login-card {
+            width: min(460px, 100%);
+            padding: 30px;
+            border-radius: 30px;
+        }
+
+        .login-card h1 {
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            line-height: 0.95;
+            margin-bottom: 12px;
+        }
+
+        .field {
+            display: grid;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        label {
+            color: var(--muted);
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 13px 14px;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.82);
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: rgba(15, 143, 127, 0.45);
+            box-shadow: 0 0 0 4px rgba(15, 143, 127, 0.09);
+        }
+
+        .alert {
+            display: none;
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            color: #9a3412;
+            background: rgba(251, 146, 60, 0.13);
+            border: 1px solid rgba(251, 146, 60, 0.22);
+        }
+
+        .dashboard {
+            display: none;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .stat {
+            padding: 18px;
+            border-radius: 22px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--teal-dark);
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 8px;
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .tab {
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 10px 14px;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.64);
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        .tab.active {
+            color: #fff;
+            border-color: transparent;
+            background: linear-gradient(135deg, var(--teal), var(--coral));
+        }
+
+        .panel {
+            display: none;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        .card {
+            padding: 20px;
+            border-radius: var(--radius);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .item {
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.62);
+        }
+
+        .item-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .item h3 {
+            font-size: 1.15rem;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            color: var(--teal-dark);
+            background: rgba(20, 184, 166, 0.1);
+            font-weight: 800;
+            font-size: 0.84rem;
+        }
+
+        .pill.pending {
+            color: #9a3412;
+            background: rgba(251, 146, 60, 0.12);
+        }
+
+        .pill.done {
+            color: #047857;
+            background: rgba(16, 185, 129, 0.13);
+        }
+
+        .message {
+            color: var(--muted);
+            line-height: 1.65;
+            white-space: pre-wrap;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .content-form {
+            margin-bottom: 16px;
+        }
+
+        .empty {
+            padding: 22px;
+            text-align: center;
+            color: var(--muted);
+            border: 1px dashed rgba(15, 143, 127, 0.28);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.48);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 860px) {
+            .topbar,
+            .panel-header,
+            .item-head {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .stats,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="shell">
+        <section class="login-wrap" id="loginView">
+            <form class="login-card" id="loginForm">
+                <div class="brand-mark">SW</div>
+                <h1>Admin Dashboard</h1>
+                <p class="section-note">Sign in to manage enquiries, applications and website content.</p>
+                <div class="field">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" id="adminEmail" autocomplete="email" required>
+                </div>
+                <div class="field">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" autocomplete="current-password" required>
+                </div>
+                <button class="btn" type="submit" style="width:100%; margin-top:18px;">
+                    <i class="fa-solid fa-lock"></i>
+                    Sign In
+                </button>
+                <div class="alert" id="loginError"></div>
+            </form>
+        </section>
+
+        <section class="dashboard" id="dashboardView">
+            <header class="topbar">
+                <div class="brand">
+                    <div class="brand-mark">SW</div>
+                    <div>
+                        <h1>Admin Dashboard</h1>
+                        <p>Manage Sandip Walunj portfolio enquiries and content</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="btn secondary" href="index.html"><i class="fa-solid fa-arrow-left"></i> Website</a>
+                    <button class="btn secondary" type="button" onclick="refreshAll()">
+                        <i class="fa-solid fa-rotate"></i> Refresh
+                    </button>
+                    <button class="btn" type="button" onclick="signOut()">
+                        <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+                    </button>
+                </div>
+            </header>
+
+            <div class="stats">
+                <div class="card stat">
+                    <strong id="statContacts">0</strong>
+                    <span>Contact Messages</span>
+                </div>
+                <div class="card stat">
+                    <strong id="statApplications">0</strong>
+                    <span>Applications</span>
+                </div>
+                <div class="card stat">
+                    <strong id="statPending">0</strong>
+                    <span>Pending Items</span>
+                </div>
+                <div class="card stat">
+                    <strong id="statContent">0</strong>
+                    <span>Content Records</span>
+                </div>
+            </div>
+
+            <nav class="tabs" aria-label="Dashboard sections">
+                <button class="tab active" type="button" data-panel="messagesPanel">Contact Messages</button>
+                <button class="tab" type="button" data-panel="applicationsPanel">Applications</button>
+                <button class="tab" type="button" data-panel="contentPanel">Content Manager</button>
+            </nav>
+
+            <section class="panel active card" id="messagesPanel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Contact Messages</h2>
+                        <p class="section-note">View enquiries and mark them completed.</p>
+                    </div>
+                    <button class="btn secondary" type="button" onclick="exportCSV('contacts')">
+                        <i class="fa-solid fa-file-arrow-down"></i> Export CSV
+                    </button>
+                </div>
+                <div class="list" id="messagesList"></div>
+            </section>
+
+            <section class="panel card" id="applicationsPanel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Placement & Internship Requests</h2>
+                        <p class="section-note">Review applications and open resume links.</p>
+                    </div>
+                    <button class="btn secondary" type="button" onclick="exportCSV('applications')">
+                        <i class="fa-solid fa-file-arrow-down"></i> Export CSV
+                    </button>
+                </div>
+                <div class="list" id="applicationsList"></div>
+            </section>
+
+            <section class="panel card" id="contentPanel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Website Content</h2>
+                        <p class="section-note">Add/edit publications, services and learning resources. Publications update the Research section automatically.</p>
+                    </div>
+                    <button class="btn secondary" type="button" onclick="loadContent()">
+                        <i class="fa-solid fa-rotate"></i> Reload Content
+                    </button>
+                </div>
+
+                <form class="content-form" id="contentForm">
+                    <div class="grid-2">
+                        <div class="field">
+                            <label for="contentType">Content Type</label>
+                            <select id="contentType" required>
+                                <option value="site_services">Service</option>
+                                <option value="site_resources">Learning Resource</option>
+                                <option value="site_publications">Publication</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="contentCategory">Category / Tag</label>
+                            <input type="text" id="contentCategory" placeholder="Training, Java, IEEE, etc.">
+                        </div>
+                    </div>
+                    <div class="grid-2 publication-fields">
+                        <div class="field">
+                            <label for="publicationJournal">Journal / Publisher</label>
+                            <input type="text" id="publicationJournal" placeholder="IEEE, IRJET, Springer, IJCSN">
+                        </div>
+                        <div class="field">
+                            <label for="publicationYear">Publication Year</label>
+                            <input type="number" id="publicationYear" min="1900" max="2100" placeholder="2019">
+                        </div>
+                    </div>
+                    <div class="grid-2 resource-fields">
+                        <div class="field">
+                            <label for="resourceIconClass">Resource Icon Color Class</label>
+                            <input type="text" id="resourceIconClass" placeholder="icon-java, icon-python, icon-cuda">
+                        </div>
+                        <div class="field">
+                            <label for="resourceIconLibrary">Icon Library</label>
+                            <select id="resourceIconLibrary">
+                                <option value="fontawesome">Font Awesome</option>
+                                <option value="devicon">Devicon</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="contentTitle">Title</label>
+                        <input type="text" id="contentTitle" required>
+                    </div>
+                    <div class="field">
+                        <label for="contentSummary">Summary</label>
+                        <textarea id="contentSummary" rows="3" required></textarea>
+                    </div>
+                    <div class="grid-2">
+                        <div class="field">
+                            <label for="contentUrl">URL</label>
+                            <input type="url" id="contentUrl" placeholder="https://...">
+                        </div>
+                        <div class="field publication-fields">
+                            <label for="publicationLinkLabel">Publication Button Label</label>
+                            <input type="text" id="publicationLinkLabel" placeholder="View Paper / View PDF / View DOI">
+                        </div>
+                        <div class="field resource-fields">
+                            <label for="resourceIconName">Icon Name</label>
+                            <input type="text" id="resourceIconName"
+                                placeholder="fa-solid fa-code or devicon-java-plain">
+                        </div>
+                        <div class="field resource-fields">
+                            <label for="resourceLinkLabel">Resource Button Label</label>
+                            <input type="text" id="resourceLinkLabel" placeholder="Explore / Open Material / Start Learning">
+                        </div>
+                        <div class="field">
+                            <label for="contentSort">Sort Order</label>
+                            <input type="number" id="contentSort" value="10" min="0">
+                        </div>
+                    </div>
+                    <button class="btn" type="submit" style="margin-top:16px;">
+                        <i class="fa-solid fa-plus"></i> Add Content
+                    </button>
+                </form>
+
+                <div class="list" id="contentList"></div>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://hnfochisjxnnmifbgxiq.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhuZm9jaGlzanhubm1pZmJneGlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTY5NDUsImV4cCI6MjA5NzYzMjk0NX0.Gc--qJVLfbkm5Ip9WXGN7Dy8e0v2buv-UKJZSPPzdF0';
+        const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        let contacts = [];
+        let applications = [];
+        let contentRows = [];
+
+        const loginView = document.getElementById('loginView');
+        const dashboardView = document.getElementById('dashboardView');
+        const loginError = document.getElementById('loginError');
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loginError.style.display = 'none';
+
+            const email = document.getElementById('adminEmail').value.trim();
+            const password = document.getElementById('adminPassword').value;
+            const { error } = await client.auth.signInWithPassword({ email, password });
+
+            if (error) {
+                loginError.textContent = error.message;
+                loginError.style.display = 'block';
+                return;
+            }
+
+            await showDashboard();
+        });
+
+        document.getElementById('contentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const table = document.getElementById('contentType').value;
+            const payload = {
+                title: document.getElementById('contentTitle').value.trim(),
+                category: document.getElementById('contentCategory').value.trim() || null,
+                summary: document.getElementById('contentSummary').value.trim(),
+                url: document.getElementById('contentUrl').value.trim() || null,
+                sort_order: Number(document.getElementById('contentSort').value || 10),
+                is_active: true
+            };
+
+            if (table === 'site_publications') {
+                payload.journal = document.getElementById('publicationJournal').value.trim() || null;
+                payload.publication_year = document.getElementById('publicationYear').value
+                    ? Number(document.getElementById('publicationYear').value)
+                    : null;
+                payload.link_label = document.getElementById('publicationLinkLabel').value.trim() || 'View Paper';
+            }
+
+            if (table === 'site_resources') {
+                payload.icon_class = document.getElementById('resourceIconClass').value.trim() || null;
+                payload.icon_library = document.getElementById('resourceIconLibrary').value || 'fontawesome';
+                payload.icon_name = document.getElementById('resourceIconName').value.trim() || 'fa-solid fa-book-open-reader';
+                payload.link_label = document.getElementById('resourceLinkLabel').value.trim() || 'Explore';
+            }
+
+            const { error } = await client.from(table).insert(payload);
+            if (error) {
+                alert(error.message);
+                return;
+            }
+
+            e.target.reset();
+            document.getElementById('contentSort').value = 10;
+            await loadContent();
+        });
+
+        document.querySelectorAll('.tab').forEach((tab) => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach((item) => item.classList.remove('active'));
+                document.querySelectorAll('.panel').forEach((item) => item.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.panel).classList.add('active');
+            });
+        });
+
+        document.getElementById('contentType').addEventListener('change', updateContentFormLabels);
+
+        async function init() {
+            updateContentFormLabels();
+            const { data } = await client.auth.getSession();
+            if (data.session) {
+                await showDashboard();
+            }
+        }
+
+        function updateContentFormLabels() {
+            const table = document.getElementById('contentType').value;
+            const isPublication = table === 'site_publications';
+            const isResource = table === 'site_resources';
+            document.querySelectorAll('.publication-fields').forEach((field) => {
+                field.classList.toggle('hidden', !isPublication);
+            });
+            document.querySelectorAll('.resource-fields').forEach((field) => {
+                field.classList.toggle('hidden', !isResource);
+            });
+            document.querySelector('label[for="contentSummary"]').textContent = isPublication ? 'Short Description' : 'Summary';
+            document.querySelector('label[for="contentUrl"]').textContent = isPublication
+                ? 'PDF / DOI / Paper Link'
+                : isResource
+                    ? 'Learning Material Link'
+                    : 'URL';
+            document.getElementById('contentCategory').placeholder = isPublication
+                ? 'GPU Computing, Database, CUDA, etc.'
+                : isResource
+                    ? 'programming core systems research'
+                    : 'Training, Java, IEEE, etc.';
+        }
+
+        async function showDashboard() {
+            loginView.style.display = 'none';
+            dashboardView.style.display = 'block';
+            await refreshAll();
+        }
+
+        async function refreshAll() {
+            await Promise.all([loadContacts(), loadApplications(), loadContent()]);
+            updateStats();
+        }
+
+        async function loadContacts() {
+            const { data, error } = await client
+                .from('contact_messages')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                renderError('messagesList', error.message);
+                return;
+            }
+
+            contacts = data || [];
+            renderContacts();
+        }
+
+        async function loadApplications() {
+            const { data, error } = await client
+                .from('applications')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                renderError('applicationsList', error.message);
+                return;
+            }
+
+            applications = data || [];
+            renderApplications();
+        }
+
+        async function loadContent() {
+            const tables = ['site_services', 'site_resources', 'site_publications'];
+            const results = await Promise.all(tables.map(async (table) => {
+                const { data, error } = await client
+                    .from(table)
+                    .select('*')
+                    .order('sort_order', { ascending: true })
+                    .order('created_at', { ascending: false });
+                return error ? [] : (data || []).map((item) => ({ ...item, table }));
+            }));
+
+            contentRows = results.flat();
+            renderContent();
+            updateStats();
+        }
+
+        function renderContacts() {
+            const list = document.getElementById('messagesList');
+            if (!contacts.length) {
+                list.innerHTML = '<div class="empty">No contact messages yet.</div>';
+                return;
+            }
+
+            list.innerHTML = contacts.map((item) => `
+                <article class="item">
+                    <div class="item-head">
+                        <div>
+                            <h3>${escapeHTML(item.name)}</h3>
+                            <div class="meta">
+                                <span class="pill">${escapeHTML(item.topic || 'General')}</span>
+                                <span class="pill ${item.status === 'completed' ? 'done' : 'pending'}">${escapeHTML(item.status || 'new')}</span>
+                                <span class="pill">${formatDate(item.created_at)}</span>
+                            </div>
+                        </div>
+                        <a class="btn small secondary" href="mailto:${encodeURIComponent(item.email)}">
+                            <i class="fa-solid fa-envelope"></i> Email
+                        </a>
+                    </div>
+                    <p class="message">${escapeHTML(item.subject || 'No subject')}</p>
+                    <p class="message">${escapeHTML(item.message)}</p>
+                    <div class="actions">
+                        <button class="btn small" type="button" onclick="updateStatus('contact_messages','${item.id}','completed')">Mark Completed</button>
+                        <button class="btn small secondary" type="button" onclick="updateStatus('contact_messages','${item.id}','new')">Mark New</button>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function renderApplications() {
+            const list = document.getElementById('applicationsList');
+            if (!applications.length) {
+                list.innerHTML = '<div class="empty">No placement or internship applications yet.</div>';
+                return;
+            }
+
+            list.innerHTML = applications.map((item) => `
+                <article class="item">
+                    <div class="item-head">
+                        <div>
+                            <h3>${escapeHTML(item.name)}</h3>
+                            <div class="meta">
+                                <span class="pill">${escapeHTML(item.application_type || 'Application')}</span>
+                                <span class="pill ${item.status === 'completed' ? 'done' : 'pending'}">${escapeHTML(item.status || 'new')}</span>
+                                <span class="pill">${formatDate(item.created_at)}</span>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <a class="btn small secondary" href="mailto:${encodeURIComponent(item.email)}"><i class="fa-solid fa-envelope"></i> Email</a>
+                            <a class="btn small secondary" href="tel:${encodeURIComponent(item.phone)}"><i class="fa-solid fa-phone"></i> Call</a>
+                            ${item.resume_link ? `<a class="btn small" href="${escapeAttr(item.resume_link)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-arrow-down"></i> Resume</a>` : ''}
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <span class="pill">${escapeHTML(item.qualification || 'Qualification not added')}</span>
+                        <span class="pill">${escapeHTML(item.preferred_role || 'Role open')}</span>
+                    </div>
+                    <p class="message"><strong>Skills:</strong> ${escapeHTML(item.skills || '')}</p>
+                    <p class="message">${escapeHTML(item.message || '')}</p>
+                    <div class="actions">
+                        <button class="btn small" type="button" onclick="updateStatus('applications','${item.id}','completed')">Mark Completed</button>
+                        <button class="btn small secondary" type="button" onclick="updateStatus('applications','${item.id}','new')">Mark New</button>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function renderContent() {
+            const list = document.getElementById('contentList');
+            if (!contentRows.length) {
+                list.innerHTML = '<div class="empty">No content records yet. Add your first service, resource or publication above.</div>';
+                return;
+            }
+
+            list.innerHTML = contentRows.map((item) => `
+                <article class="item">
+                    <div class="item-head">
+                        <div>
+                            <h3>${escapeHTML(item.title)}</h3>
+                            <div class="meta">
+                                <span class="pill">${escapeHTML(contentLabel(item.table))}</span>
+                                <span class="pill">${escapeHTML(item.category || 'No category')}</span>
+                                ${item.table === 'site_publications' && item.journal ? `<span class="pill">${escapeHTML(item.journal)}</span>` : ''}
+                                ${item.table === 'site_publications' && item.publication_year ? `<span class="pill">${escapeHTML(item.publication_year)}</span>` : ''}
+                                ${item.table === 'site_resources' && item.icon_class ? `<span class="pill">${escapeHTML(item.icon_class)}</span>` : ''}
+                                <span class="pill ${item.is_active ? 'done' : 'pending'}">${item.is_active ? 'active' : 'hidden'}</span>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            ${item.url ? `<a class="btn small secondary" href="${escapeAttr(item.url)}" target="_blank" rel="noopener noreferrer">Open</a>` : ''}
+                            <button class="btn small secondary" type="button" onclick="editContent('${item.table}','${item.id}')">Edit</button>
+                            <button class="btn small secondary" type="button" onclick="toggleContent('${item.table}','${item.id}',${!item.is_active})">${item.is_active ? 'Hide' : 'Show'}</button>
+                        </div>
+                    </div>
+                    <p class="message">${escapeHTML(item.summary || '')}</p>
+                </article>
+            `).join('');
+        }
+
+        async function updateStatus(table, id, status) {
+            const { error } = await client.from(table).update({ status }).eq('id', id);
+            if (error) {
+                alert(error.message);
+                return;
+            }
+            await refreshAll();
+        }
+
+        async function toggleContent(table, id, isActive) {
+            const { error } = await client.from(table).update({ is_active: isActive }).eq('id', id);
+            if (error) {
+                alert(error.message);
+                return;
+            }
+            await loadContent();
+        }
+
+        async function editContent(table, id) {
+            const item = contentRows.find((row) => row.table === table && row.id === id);
+            if (!item) return;
+
+            const title = prompt('Edit title', item.title || '');
+            if (title === null) return;
+
+            const category = prompt('Edit category / tag', item.category || '');
+            if (category === null) return;
+
+            const summary = prompt('Edit summary', item.summary || '');
+            if (summary === null) return;
+
+            const url = prompt('Edit URL', item.url || '');
+            if (url === null) return;
+
+            const sortOrder = prompt('Edit sort order', item.sort_order ?? 10);
+            if (sortOrder === null) return;
+
+            const updatePayload = {
+                title: title.trim(),
+                category: category.trim() || null,
+                summary: summary.trim(),
+                url: url.trim() || null,
+                sort_order: Number(sortOrder || 10)
+            };
+
+            if (table === 'site_publications') {
+                const journal = prompt('Edit journal / publisher', item.journal || '');
+                if (journal === null) return;
+
+                const year = prompt('Edit publication year', item.publication_year || '');
+                if (year === null) return;
+
+                const linkLabel = prompt('Edit button label', item.link_label || 'View Paper');
+                if (linkLabel === null) return;
+
+                updatePayload.journal = journal.trim() || null;
+                updatePayload.publication_year = year ? Number(year) : null;
+                updatePayload.link_label = linkLabel.trim() || 'View Paper';
+            }
+
+            if (table === 'site_resources') {
+                const iconClass = prompt('Edit icon color class', item.icon_class || '');
+                if (iconClass === null) return;
+
+                const iconLibrary = prompt('Edit icon library: fontawesome or devicon', item.icon_library || 'fontawesome');
+                if (iconLibrary === null) return;
+
+                const iconName = prompt('Edit icon name', item.icon_name || 'fa-solid fa-book-open-reader');
+                if (iconName === null) return;
+
+                const linkLabel = prompt('Edit button label', item.link_label || 'Explore');
+                if (linkLabel === null) return;
+
+                updatePayload.icon_class = iconClass.trim() || null;
+                updatePayload.icon_library = iconLibrary.trim() || 'fontawesome';
+                updatePayload.icon_name = iconName.trim() || 'fa-solid fa-book-open-reader';
+                updatePayload.link_label = linkLabel.trim() || 'Explore';
+            }
+
+            const { error } = await client
+                .from(table)
+                .update(updatePayload)
+                .eq('id', id);
+
+            if (error) {
+                alert(error.message);
+                return;
+            }
+
+            await loadContent();
+        }
+
+        async function signOut() {
+            await client.auth.signOut();
+            dashboardView.style.display = 'none';
+            loginView.style.display = 'grid';
+        }
+
+        function updateStats() {
+            const pendingContacts = contacts.filter((item) => item.status !== 'completed').length;
+            const pendingApplications = applications.filter((item) => item.status !== 'completed').length;
+            document.getElementById('statContacts').textContent = contacts.length;
+            document.getElementById('statApplications').textContent = applications.length;
+            document.getElementById('statPending').textContent = pendingContacts + pendingApplications;
+            document.getElementById('statContent').textContent = contentRows.length;
+        }
+
+        function exportCSV(type) {
+            const rows = type === 'contacts' ? contacts : applications;
+            if (!rows.length) {
+                alert('Nothing to export yet.');
+                return;
+            }
+
+            const keys = Object.keys(rows[0]);
+            const csv = [
+                keys.join(','),
+                ...rows.map((row) => keys.map((key) => csvCell(row[key])).join(','))
+            ].join('\n');
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${type}-${new Date().toISOString().slice(0, 10)}.csv`;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function renderError(id, message) {
+            document.getElementById(id).innerHTML = `<div class="empty">${escapeHTML(message)}</div>`;
+        }
+
+        function csvCell(value) {
+            const safe = value === null || value === undefined ? '' : String(value);
+            return `"${safe.replace(/"/g, '""')}"`;
+        }
+
+        function formatDate(value) {
+            if (!value) return 'No date';
+            return new Date(value).toLocaleString('en-IN', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function contentLabel(table) {
+            return {
+                site_services: 'Service',
+                site_resources: 'Resource',
+                site_publications: 'Publication'
+            }[table] || table;
+        }
+
+        function escapeHTML(value) {
+            return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[char]));
+        }
+
+        function escapeAttr(value) {
+            return escapeHTML(value).replace(/`/g, '&#96;');
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

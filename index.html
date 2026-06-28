@@ -14,7 +14,7 @@
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <meta property="og:title" content="Sandip Walunj | Chairman - Seema Technologies">
     <meta property="og:description"
-        content="IT Professional, Educator and Researcher with 14+ years of experience. Microsoft Certified Professional.">
+        content="IT Professional, Educator and Researcher with 21+ years of experience. Microsoft Certified Professional.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sandipwalunj.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,36 +24,110 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Sandip Walunj",
-            "url": "https://sandipwalunj.com/",
-            "image": "https://sandipwalunj.com/profile.jpeg",
-            "jobTitle": "Chairman",
-            "email": "mailto:info@sandipwalunj.com",
-            "telephone": "+91-9168469900",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Nashik",
-                "addressRegion": "Maharashtra",
-                "addressCountry": "IN"
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://sandipwalunj.com/#person",
+                "name": "Sandip Walunj",
+                "url": "https://sandipwalunj.com/",
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "https://sandipwalunj.com/profile.jpeg"
+                },
+                "jobTitle": [
+                    "Chairman",
+                    "Assistant Professor",
+                    "IT Professional",
+                    "Educator",
+                    "Researcher"
+                ],
+                "description": "Chairman of Seema Technologies, Assistant Professor, Microsoft Certified Professional, and NVIDIA CUDA Teaching Center Principal Investigator.",
+                "email": "mailto:info@sandipwalunj.com",
+                "telephone": "+91-9168469900",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Nashik",
+                    "addressRegion": "Maharashtra",
+                    "addressCountry": "IN"
+                },
+                "worksFor": {
+                    "@id": "https://sandipwalunj.com/#organization"
+                },
+                "affiliation": {
+                    "@type": "EducationalOrganization",
+                    "name": "SITRC, Sandip Foundation, Nashik"
+                },
+                "alumniOf": [
+                    {
+                        "@type": "EducationalOrganization",
+                        "name": "Pune Institute of Computer Technology"
+                    },
+                    {
+                        "@type": "EducationalOrganization",
+                        "name": "M.I.T, Aurangabad"
+                    }
+                ],
+                "award": [
+                    "Microsoft Certified Professional",
+                    "Young IT Professional Award",
+                    "BCUD Research Grant"
+                ],
+                "knowsAbout": [
+                    "Computer Engineering",
+                    "GPU Computing",
+                    "CUDA Programming",
+                    "Parallel Processing",
+                    "Machine Learning",
+                    "Software Development",
+                    "Technical Training",
+                    "Data Structures",
+                    "Algorithms",
+                    "Java Programming",
+                    "Python Programming",
+                    "Database Management Systems"
+                ]
             },
-            "worksFor": {
+            {
                 "@type": "Organization",
+                "@id": "https://sandipwalunj.com/#organization",
                 "name": "Seema Technologies",
-                "url": "https://sandipwalunj.com/"
+                "url": "https://sandipwalunj.com/",
+                "description": "IT Software Development and Training Company"
             },
-            "knowsAbout": [
-                "Computer Engineering",
-                "GPU Computing",
-                "Parallel Processing",
-                "Machine Learning",
-                "Software Development",
-                "Technical Training"
-            ]
-        }
-    </script>
+            {
+                "@type": "WebSite",
+                "@id": "https://sandipwalunj.com/#website",
+                "url": "https://sandipwalunj.com/",
+                "name": "Sandip Walunj Portfolio",
+                "publisher": {
+                    "@id": "https://sandipwalunj.com/#person"
+                },
+                "inLanguage": "en-IN"
+            },
+            {
+                "@type": "ProfilePage",
+                "@id": "https://sandipwalunj.com/#webpage",
+                "url": "https://sandipwalunj.com/",
+                "name": "Sandip Walunj | Chairman - Seema Technologies",
+                "description": "Official portfolio website of Sandip Walunj, Chairman of Seema Technologies, educator, researcher, and Microsoft Certified Professional.",
+                "isPartOf": {
+                    "@id": "https://sandipwalunj.com/#website"
+                },
+                "about": {
+                    "@id": "https://sandipwalunj.com/#person"
+                },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://sandipwalunj.com/profile.jpeg"
+                },
+                "inLanguage": "en-IN"
+            }
+        ]
+    }
+</script>
+
 </head>
 
 <body>
@@ -103,14 +177,18 @@
                         <span class="gradient-text">Sandip Walunj</span>
                     </h1>
                     <p class="hero-subtitle">
-                        IT Professional, Educator & Researcher with 14+ years of industry and teaching experience.
-                        Microsoft Certified Professional. NVIDIA CUDA Teaching Center — Principal Investigator.
+                        IT Professional, Educator & Researcher with <span data-experience-text>21+</span> years of
+                        industry and teaching experience.
+                        Microsoft Certified Professional. NVIDIA CUDA Teaching Center &mdash; Principal Investigator.
                     </p>
+
                     <div class="hero-stats">
                         <div class="stat-item">
-                            <div class="stat-number"><span class="count-up" data-target="14">0</span>+</div>
+                            <div class="stat-number"><span class="count-up" data-experience-count
+                                    data-target="21">0</span>+</div>
                             <div class="stat-label">Years Exp.</div>
                         </div>
+
                         <div class="stat-item">
                             <div class="stat-number"><span class="count-up" data-target="1000">0</span></div>
                             <div class="stat-label">MCP Score</div>
@@ -134,12 +212,15 @@
                         <img src="profile.jpeg" alt="Sandip Walunj - Professional Photo" id="profileImg" width="350"
                             height="350" loading="lazy">
                         <div class="float-badge badge-1"><i class="fa-brands fa-microsoft"></i> MCP Certified</div>
-                        <div class="float-badge badge-2"><i class="fa-solid fa-laptop-code"></i> 14+ Years Exp</div>
+                        <div class="float-badge badge-2"><i class="fa-solid fa-laptop-code"></i> <span
+                                data-experience-text>21+</span> Years Exp</div>
                         <div class="float-badge badge-3"><i class="fa-solid fa-trophy"></i> Young IT Professional Award
                         </div>
+
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -268,6 +349,27 @@
                             students.</p>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card reveal">
+                        <div class="service-icon service-placement"><i class="fa-solid fa-briefcase"></i></div>
+                        <h3>Placement Support</h3>
+                        <p>Guidance for resume building, interview preparation, aptitude practice and job readiness.</p>
+                        <button type="button" class="service-cta" onclick="openApplicationModal('Placement Support')">
+                            Apply for Placement
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card reveal">
+                        <div class="service-icon service-internship"><i class="fa-solid fa-id-card-clip"></i></div>
+                        <h3>Internship Support</h3>
+                        <p>Support for internship preparation, project selection, technical skills and professional
+                            learning.</p>
+                        <button type="button" class="service-cta" onclick="openApplicationModal('Internship Support')">
+                            Apply for Internship
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -359,8 +461,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="achievement-card reveal">
                         <div class="achievement-icon"><i class="fa-solid fa-clock"></i></div>
-                        <div class="achievement-number"><span class="count-up" data-target="14">0</span>+</div>
+                        <div class="achievement-number"><span class="count-up" data-experience-count
+                                data-target="21">0</span>+</div>
                         <div class="achievement-label">Years of Experience</div>
+
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -399,141 +503,12 @@
                 <button class="filter-btn" type="button" data-filter="systems">Systems</button>
                 <button class="filter-btn" type="button" data-filter="research">Research</button>
             </div>
-            <div class="row resources-grid stagger-children g-3">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/sandipwalunjcprogramming/" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="programming">
-                        <div class="resource-icon icon-c"><i class="devicon-c-plain"></i></div>
-                        <h3>C Programming</h3>
-                        <p>Fundamentals &amp; advanced concepts</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/sandipwalunjc/" target="_blank" rel="noopener noreferrer"
-                        class="resource-card reveal" data-category="programming">
-                        <div class="resource-icon icon-cpp"><i class="devicon-cplusplus-plain"></i></div>
-                        <h3>C++</h3>
-                        <p>Object-oriented programming</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/objectorienteddatastructures/" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="programming core">
-                        <div class="resource-icon icon-oop"><i class="fa-solid fa-cubes"></i></div>
-                        <h3>OOP &amp; Multicore</h3>
-                        <p>Object oriented &amp; multicore programming</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/sandipwalunjdatastructures/" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="core">
-                        <div class="resource-icon icon-dsa"><i class="fa-solid fa-diagram-project"></i></div>
-                        <h3>Data Structures</h3>
-                        <p>Trees, graphs, lists &amp; more</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/javaprogrammingsandipwalunj/" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="programming">
-                        <div class="resource-icon icon-java"><i class="devicon-java-plain"></i></div>
-                        <h3>Java Programming</h3>
-                        <p>Core Java &amp; advanced topics</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/advancedalgorithmsaa/" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="core">
-                        <div class="resource-icon icon-algo"><i class="fa-solid fa-chart-line"></i></div>
-                        <h3>Design &amp; Analysis of Algorithms</h3>
-                        <p>Algorithm strategies &amp; complexity</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/theoryofcomputation1/" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="core">
-                        <div class="resource-icon icon-toc"><i class="fa-solid fa-atom"></i></div>
-                        <h3>Theory of Computation</h3>
-                        <p>Automata, languages &amp; Turing</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/compilerdesignsam/" target="_blank" rel="noopener noreferrer"
-                        class="resource-card reveal" data-category="core systems">
-                        <div class="resource-icon icon-compiler"><i class="fa-solid fa-gear"></i></div>
-                        <h3>Compiler Design</h3>
-                        <p>Principles of compiler design</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/cudaprogramming1/" target="_blank" rel="noopener noreferrer"
-                        class="resource-card reveal" data-category="systems research">
-                        <div class="resource-icon icon-cuda"><i class="fa-solid fa-microchip"></i></div>
-                        <h3>CUDA Programming</h3>
-                        <p>GPU computing &amp; parallel processing</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/sandipwalunjdotnet/home" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="programming">
-                        <div class="resource-icon icon-dotnet"><i class="devicon-dotnetcore-plain"></i></div>
-                        <h3>Dot Net</h3>
-                        <p>ASP.NET, C#.NET framework</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://www.sites.google.com/site/walunjsmnetworking/" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="core">
-                        <div class="resource-icon icon-math"><i class="fa-solid fa-square-root-variable"></i></div>
-                        <h3>Discrete Mathematics</h3>
-                        <p>Logic, sets &amp; combinatorics</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/advancedoperatingsystemsaos/" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="systems">
-                        <div class="resource-icon icon-os"><i class="fa-solid fa-server"></i></div>
-                        <h3>Distributed OS</h3>
-                        <p>Distributed operating systems</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/advanceddbms11/" target="_blank" rel="noopener noreferrer"
-                        class="resource-card reveal" data-category="systems">
-                        <div class="resource-icon icon-dbms"><i class="fa-solid fa-database"></i></div>
-                        <h3>Advanced DBMS</h3>
-                        <p>Database management systems</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/advancedcomputerarchitecture11/" target="_blank"
-                        rel="noopener noreferrer" class="resource-card reveal" data-category="programming">
-                        <div class="resource-icon icon-python"><i class="devicon-python-plain"></i></div>
-                        <h3>Python Programming</h3>
-                        <p>Python fundamentals &amp; applications</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="https://sites.google.com/site/imageprocessing81/" target="_blank" rel="noopener noreferrer"
-                        class="resource-card reveal" data-category="research">
-                        <div class="resource-icon icon-image"><i class="fa-solid fa-image"></i></div>
-                        <h3>Image Processing</h3>
-                        <p>Digital image processing techniques</p>
-                        <span class="resource-link">Explore &rarr;</span>
-                    </a>
+            <div class="row resources-grid stagger-children g-3" id="resourcesGrid">
+                <div class="col-12">
+                    <div class="resource-empty-state">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        Loading learning materials...
+                    </div>
                 </div>
             </div>
         </div>
@@ -550,53 +525,11 @@
                 <p class="section-subtitle reveal">Academic contributions across GPU computing, parallel processing and
                     machine learning</p>
             </div>
-            <div class="row publications-grid stagger-children g-3">
-                <div class="col-lg-4 col-md-6">
-                    <div class="publication-card reveal">
-                        <div class="publication-icon pub-ieee"><i class="fa-solid fa-file-lines"></i></div>
-                        <span class="publication-tag">IEEE</span>
-                        <h3>Conference & Journal Publications</h3>
-                        <p>Research work published through reputed technical publication platforms including IEEE.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="publication-card reveal">
-                        <div class="publication-icon pub-elsevier"><i class="fa-solid fa-book-journal-whills"></i></div>
-                        <span class="publication-tag">Elsevier</span>
-                        <h3>International Research Contributions</h3>
-                        <p>Academic writing and publication contributions in established international journals.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="publication-card reveal">
-                        <div class="publication-icon pub-grant"><i class="fa-solid fa-indian-rupee-sign"></i></div>
-                        <span class="publication-tag">Grant</span>
-                        <h3>BCUD Research Grant</h3>
-                        <p>Recipient of Rs. 90,000 BCUD research grant supporting academic research initiatives.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="publication-card reveal">
-                        <div class="publication-icon pub-cuda"><i class="fa-solid fa-microchip"></i></div>
-                        <span class="publication-tag">CUDA</span>
-                        <h3>GPU Computing Focus</h3>
-                        <p>Research interests include CUDA programming, GPU education and parallel processing.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="publication-card reveal">
-                        <div class="publication-icon pub-ml"><i class="fa-solid fa-brain"></i></div>
-                        <span class="publication-tag">ML</span>
-                        <h3>Machine Learning</h3>
-                        <p>Academic focus includes practical and research-oriented machine learning applications.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="publication-card reveal">
-                        <div class="publication-icon pub-academic"><i class="fa-solid fa-graduation-cap"></i></div>
-                        <span class="publication-tag">Academia</span>
-                        <h3>Teaching & Mentoring</h3>
-                        <p>Research-led teaching support for computer engineering students and technical learners.</p>
+            <div class="row publications-grid stagger-children g-3" id="publicationsGrid">
+                <div class="col-12">
+                    <div class="publication-empty-state">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        Loading publications...
                     </div>
                 </div>
             </div>
@@ -617,15 +550,19 @@
                 <div class="col-lg-6 contact-info-cards reveal-left">
 
                     <!-- Location -->
-                    <div class="contact-card">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Seema%20Technologies%2C%2001%2C%20Vakratund%20Row%20Bunglow%2C%20Behind%20Mangal%20Karyalaya%2C%20Amrutdham%2C%20RK%20Mess%20Lane%2C%20Behind%20Varad%20Ganpati%20Mandir%2C%20Panchavati%2C%20Nashik%20422003%2C%20Maharashtra"
+                        target="_blank" rel="noopener noreferrer" class="contact-card contact-card-link"
+                        aria-label="Open location in Google Maps">
                         <div class="contact-card-icon icon-location">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div class="contact-card-text">
                             <h4>Location</h4>
-                            <p>Nashik, Maharashtra, India</p>
+                            <p>01, Vakratund Row Bunglow, Behind Mangal Karyalaya, Amrutdham, RK Mess Lane, Behind Varad
+                                Ganpati Mandir, Panchavati, Nashik-422003</p>
                         </div>
-                    </div>
+                        <span class="contact-card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                    </a>
 
                     <!-- Email -->
                     <a href="mailto:info@sandipwalunj.com" class="contact-card contact-card-link">
@@ -634,7 +571,7 @@
                         </div>
                         <div class="contact-card-text">
                             <h4>Email</h4>
-                            <p>info@sandipwalunj.com</p>
+                            <p>sandipwalunj@gmail.com</p>
                         </div>
                         <span class="contact-card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
                     </a>
@@ -652,14 +589,14 @@
                         <span class="contact-card-arrow"><i class="fa-solid fa-arrow-right"></i></span>
                     </a>
 
-                    <!-- Organization -->
+                    <!-- Specialization -->
                     <div class="contact-card">
-                        <div class="contact-card-icon icon-org">
-                            <i class="fa-solid fa-building"></i>
+                        <div class="contact-card-icon icon-specialization">
+                            <i class="fa-solid fa-brain"></i>
                         </div>
                         <div class="contact-card-text">
-                            <h4>Organization</h4>
-                            <p>Seema Technologies — IT Software Dev &amp; Training</p>
+                            <h4>Specialization</h4>
+                            <p>GPU Computing, Parallel Processing &amp; Machine Learning</p>
                         </div>
                     </div>
 
@@ -670,21 +607,13 @@
                         </div>
                         <div class="contact-card-text">
                             <h4>Institution</h4>
-                            <p>SITRC, Sandip Foundation, Nashik</p>
+                            <p>Seema Technologies &mdash; IT Software Dev &amp; Training</p>
                         </div>
                     </div>
 
+
                 </div>
                 <form class="col-lg-6 contact-form reveal-right" id="contactForm" onsubmit="handleSubmit(event)">
-                    <!-- 
-                        FORMSPREE SETUP (one-time, takes 2 minutes):
-                        1. Go to https://formspree.io and sign up free
-                        2. Click "New Form", name it anything (e.g. "Sandip Contact")
-                        3. Copy your Form ID (looks like: xpwzrgjk)
-                        4. Replace YOUR_FORM_ID below with your actual ID
-                    -->
-                    <input type="hidden" name="_formspree_id" value="YOUR_FORM_ID">
-
                     <div class="form-group">
                         <input type="text" id="inputName" name="name" placeholder="Your Name" autocomplete="name"
                             minlength="2" required>
@@ -701,6 +630,8 @@
                             <option value="Technical Consulting">Technical Consulting</option>
                             <option value="Research Guidance">Research Guidance</option>
                             <option value="Student Mentoring">Student Mentoring</option>
+                            <option value="Placement Support">Placement Support</option>
+                            <option value="Internship Support">Internship Support</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -729,10 +660,92 @@
                         <i class="fa-brands fa-whatsapp"></i>
                         Send via WhatsApp
                     </button>
+                    <div class="application-actions">
+                        <button type="button" class="btn btn-application"
+                            onclick="openApplicationModal('Placement Support')">
+                            <i class="fa-solid fa-briefcase"></i>
+                            Apply for Placement Support
+                        </button>
+                        <button type="button" class="btn btn-application btn-application-alt"
+                            onclick="openApplicationModal('Internship Support')">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                            Apply for Internship Support
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </section>
+
+    <!-- Application Modal -->
+    <div class="application-modal" id="applicationModal" aria-hidden="true">
+        <div class="application-modal-backdrop" onclick="closeApplicationModal()"></div>
+        <div class="application-modal-card" role="dialog" aria-modal="true" aria-labelledby="applicationModalTitle">
+            <button type="button" class="application-modal-close" onclick="closeApplicationModal()"
+                aria-label="Close application form">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="application-modal-header">
+                <span class="section-label">Student Support</span>
+                <h3 id="applicationModalTitle">Apply for Support</h3>
+                <p>Share your details so we can guide you with the right placement or internship path.</p>
+            </div>
+            <form class="application-form" id="applicationForm" onsubmit="handleApplicationSubmit(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <input type="text" id="appName" name="name" placeholder="Full Name" autocomplete="name"
+                            minlength="2" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="appEmail" name="email" placeholder="Email Address" autocomplete="email"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="appPhone" name="phone" placeholder="Phone / WhatsApp Number"
+                            autocomplete="tel" minlength="8" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="appType" name="application_type" required>
+                            <option value="" disabled selected>Select Application Type</option>
+                            <option value="Placement Support">Placement Support</option>
+                            <option value="Internship Support">Internship Support</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="appQualification" name="qualification"
+                            placeholder="Course / Qualification" maxlength="120" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="appPreferredRole" name="preferred_role"
+                            placeholder="Preferred Role / Domain" maxlength="120">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="appSkills" name="skills"
+                        placeholder="Skills / Technologies, e.g. C++, Java, Python, Web" maxlength="250" required>
+                </div>
+                <div class="form-group">
+                    <input type="url" id="appResume" name="resume_link"
+                        placeholder="Resume Link (Google Drive / LinkedIn / Portfolio)" maxlength="500">
+                </div>
+                <div class="form-group">
+                    <textarea id="appMessage" name="message" placeholder="Tell us what support you need" rows="4"
+                        minlength="10" maxlength="1200" required></textarea>
+                </div>
+                <div id="applicationSuccess" class="form-status form-status--success" style="display:none;">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Application submitted successfully. We will contact you soon.</span>
+                </div>
+                <div id="applicationError" class="form-status form-status--error" style="display:none;">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>Could not submit application. Please try again.</span>
+                </div>
+                <button type="submit" class="btn btn-primary" id="applicationSubmitBtn">
+                    Submit Application &#10148;
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- ============================================
          FOOTER
@@ -864,6 +877,24 @@
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+        // ========================
+        // 5. AUTO-UPDATING EXPERIENCE
+        // ========================
+        const EXPERIENCE_START_YEAR = 2005;
+        const currentExperience = Math.max(0, new Date().getFullYear() - EXPERIENCE_START_YEAR);
+
+        document.querySelectorAll('[data-experience-text]').forEach(el => {
+            el.textContent = `${currentExperience}+`;
+        });
+
+        document.querySelectorAll('[data-experience-count]').forEach(el => {
+            el.setAttribute('data-target', currentExperience);
+        });
+
+        document.querySelectorAll('meta[name="description"], meta[property="og:description"]').forEach(meta => {
+            const content = meta.getAttribute('content') || '';
+            meta.setAttribute('content', content.replace(/\d+\+ years/g, `${currentExperience}+ years`));
+        });
 
         // ========================
         // 5. COUNT-UP ANIMATION
@@ -917,8 +948,206 @@
         });
 
         // ========================
-        // 7. CONTACT FORM HANDLER — Formspree
+        // 7. CONTACT FORM HANDLER - Supabase
         // ========================
+        const SUPABASE_URL = 'https://hnfochisjxnnmifbgxiq.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhuZm9jaGlzanhubm1pZmJneGlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTY5NDUsImV4cCI6MjA5NzYzMjk0NX0.Gc--qJVLfbkm5Ip9WXGN7Dy8e0v2buv-UKJZSPPzdF0';
+
+        async function loadPublications() {
+            const grid = document.getElementById('publicationsGrid');
+            if (!grid) return;
+
+            try {
+                const res = await fetch(
+                    `${SUPABASE_URL}/rest/v1/site_publications?select=id,title,journal,publication_year,summary,url,link_label,category,sort_order&is_active=eq.true&order=sort_order.asc,publication_year.desc`,
+                    {
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                        }
+                    }
+                );
+
+                if (!res.ok) {
+                    throw new Error('Unable to load publications');
+                }
+
+                const publications = await res.json();
+
+                if (!publications.length) {
+                    grid.innerHTML = `
+                        <div class="col-12">
+                            <div class="publication-empty-state">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Publications will appear here after they are added from the admin dashboard.
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                grid.innerHTML = publications.map((paper, index) => {
+                    const title = escapeHTML(paper.title);
+                    const journal = escapeHTML(paper.journal || paper.category || 'Research');
+                    const year = paper.publication_year ? ` ${escapeHTML(paper.publication_year)}` : '';
+                    const summary = escapeHTML(paper.summary || '');
+                    const url = escapeAttribute(paper.url || '#');
+                    const linkLabel = escapeHTML(paper.link_label || 'View Paper');
+                    const iconClass = getPublicationIcon(index);
+
+                    return `
+                        <div class="col-lg-4 col-md-6">
+                            <a href="${url}" target="_blank" rel="noopener noreferrer"
+                                class="publication-card publication-card-link reveal visible">
+                                <div class="publication-icon ${iconClass}">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                </div>
+                                <span class="publication-tag">${journal}${year}</span>
+                                <h3>${title}</h3>
+                                <p>${summary}</p>
+                                <span class="publication-link">${linkLabel}
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </span>
+                            </a>
+                        </div>
+                    `;
+                }).join('');
+            } catch (err) {
+                grid.innerHTML = `
+                    <div class="col-12">
+                        <div class="publication-empty-state publication-empty-state--error">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            Publications could not be loaded right now.
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function getPublicationIcon(index) {
+            const icons = ['pub-ieee', 'pub-cuda', 'pub-ml', 'pub-academic', 'pub-elsevier', 'pub-grant'];
+            return icons[index % icons.length];
+        }
+
+        async function loadResources() {
+            const grid = document.getElementById('resourcesGrid');
+            if (!grid) return;
+
+            try {
+                const res = await fetch(
+                    `${SUPABASE_URL}/rest/v1/site_resources?select=id,title,summary,url,category,icon_class,icon_library,icon_name,link_label,sort_order&is_active=eq.true&order=sort_order.asc,created_at.desc`,
+                    {
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                        }
+                    }
+                );
+
+                if (!res.ok) {
+                    throw new Error('Unable to load resources');
+                }
+
+                const resources = await res.json();
+
+                if (!resources.length) {
+                    grid.innerHTML = `
+                        <div class="col-12">
+                            <div class="resource-empty-state">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Learning materials will appear here after they are added from the admin dashboard.
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                grid.innerHTML = resources.map((resource, index) => {
+                    const title = escapeHTML(resource.title);
+                    const summary = escapeHTML(resource.summary || '');
+                    const url = escapeAttribute(resource.url || '#');
+                    const category = escapeAttribute(resource.category || 'core');
+                    const iconClass = escapeAttribute(resource.icon_class || getResourceIconClass(resource.title, index));
+                    const iconMarkup = getResourceIconMarkup(resource);
+                    const linkLabel = escapeHTML(resource.link_label || 'Explore');
+
+                    return `
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="${url}" target="_blank" rel="noopener noreferrer"
+                                class="resource-card reveal visible" data-category="${category}">
+                                <div class="resource-icon ${iconClass}">${iconMarkup}</div>
+                                <h3>${title}</h3>
+                                <p>${summary}</p>
+                                <span class="resource-link">${linkLabel} &rarr;</span>
+                            </a>
+                        </div>
+                    `;
+                }).join('');
+
+                initResourceTilt();
+                applyActiveResourceFilter();
+            } catch (err) {
+                grid.innerHTML = `
+                    <div class="col-12">
+                        <div class="resource-empty-state resource-empty-state--error">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            Learning materials could not be loaded right now.
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function getResourceIconMarkup(resource) {
+            if (resource.icon_library === 'devicon' && resource.icon_name) {
+                return `<i class="${escapeAttribute(resource.icon_name)}"></i>`;
+            }
+
+            if (resource.icon_library === 'fontawesome' && resource.icon_name) {
+                return `<i class="${escapeAttribute(resource.icon_name)}"></i>`;
+            }
+
+            return '<i class="fa-solid fa-book-open-reader"></i>';
+        }
+
+        function getResourceIconClass(title, index) {
+            const lowerTitle = String(title || '').toLowerCase();
+            const iconMap = [
+                ['c++', 'icon-cpp'],
+                ['c programming', 'icon-c'],
+                ['java', 'icon-java'],
+                ['python', 'icon-python'],
+                ['cuda', 'icon-cuda'],
+                ['dot net', 'icon-dotnet'],
+                ['data structure', 'icon-dsa'],
+                ['algorithm', 'icon-algo'],
+                ['compiler', 'icon-compiler'],
+                ['database', 'icon-dbms'],
+                ['dbms', 'icon-dbms'],
+                ['operating', 'icon-os'],
+                ['image', 'icon-image']
+            ];
+            const match = iconMap.find(([keyword]) => lowerTitle.includes(keyword));
+            if (match) return match[1];
+
+            const fallback = ['icon-oop', 'icon-dsa', 'icon-algo', 'icon-toc', 'icon-compiler', 'icon-cuda'];
+            return fallback[index % fallback.length];
+        }
+
+        function escapeHTML(value) {
+            return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[char]));
+        }
+
+        function escapeAttribute(value) {
+            return escapeHTML(value).replace(/`/g, '&#96;');
+        }
+
         async function handleSubmit(e) {
             e.preventDefault();
 
@@ -927,11 +1156,15 @@
             const success = document.getElementById('formSuccess');
             const error = document.getElementById('formError');
 
-            const formId = form.querySelector('[name="_formspree_id"]').value.trim();
+            const name = document.getElementById('inputName').value.trim();
+            const email = document.getElementById('inputEmail').value.trim();
+            const topic = document.getElementById('inputTopic').value;
+            const subject = document.getElementById('inputSubject').value.trim();
+            const message = document.getElementById('inputMessage').value.trim();
 
-            if (!formId || formId === 'YOUR_FORM_ID') {
+            if (!name || !email || !topic || message.length < 10) {
                 error.querySelector('span').textContent =
-                    'Form ID not set yet. Follow the setup instructions inside the HTML file.';
+                    'Please add your name, email, enquiry type and a short message.';
                 error.style.display = 'flex';
                 return;
             }
@@ -942,13 +1175,27 @@
             success.style.display = 'none';
             error.style.display = 'none';
 
-            const data = new FormData(form);
+            const enquiry = {
+                name,
+                email,
+                topic,
+                subject: subject || null,
+                message,
+                source: 'website_contact_form',
+                page_url: window.location.href,
+                user_agent: navigator.userAgent
+            };
 
             try {
-                const res = await fetch(`https://formspree.io/f/${formId}`, {
+                const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
                     method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify(enquiry)
                 });
 
                 if (res.ok) {
@@ -973,6 +1220,124 @@
                 btn.disabled = false;
             }
         }
+
+        function openApplicationModal(type = '') {
+            const modal = document.getElementById('applicationModal');
+            const form = document.getElementById('applicationForm');
+            const title = document.getElementById('applicationModalTitle');
+            const appType = document.getElementById('appType');
+            const success = document.getElementById('applicationSuccess');
+            const error = document.getElementById('applicationError');
+
+            form.reset();
+            success.style.display = 'none';
+            error.style.display = 'none';
+
+            if (type) {
+                appType.value = type;
+                title.textContent = `Apply for ${type}`;
+            } else {
+                title.textContent = 'Apply for Support';
+            }
+
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+            document.getElementById('appName').focus();
+        }
+
+        function closeApplicationModal() {
+            const modal = document.getElementById('applicationModal');
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-open');
+        }
+
+        async function handleApplicationSubmit(e) {
+            e.preventDefault();
+
+            const form = document.getElementById('applicationForm');
+            const btn = document.getElementById('applicationSubmitBtn');
+            const success = document.getElementById('applicationSuccess');
+            const error = document.getElementById('applicationError');
+
+            const name = document.getElementById('appName').value.trim();
+            const email = document.getElementById('appEmail').value.trim();
+            const phone = document.getElementById('appPhone').value.trim();
+            const applicationType = document.getElementById('appType').value;
+            const qualification = document.getElementById('appQualification').value.trim();
+            const preferredRole = document.getElementById('appPreferredRole').value.trim();
+            const skills = document.getElementById('appSkills').value.trim();
+            const resumeLink = document.getElementById('appResume').value.trim();
+            const message = document.getElementById('appMessage').value.trim();
+
+            if (!name || !email || !phone || !applicationType || !qualification || !skills || message.length < 10) {
+                error.querySelector('span').textContent =
+                    'Please fill name, email, phone, application type, qualification, skills and message.';
+                error.style.display = 'flex';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+            success.style.display = 'none';
+            error.style.display = 'none';
+
+            const application = {
+                name,
+                email,
+                phone,
+                application_type: applicationType,
+                qualification,
+                preferred_role: preferredRole || null,
+                skills,
+                resume_link: resumeLink || null,
+                message,
+                source: 'website_application_form',
+                page_url: window.location.href,
+                user_agent: navigator.userAgent
+            };
+
+            try {
+                const res = await fetch(`${SUPABASE_URL}/rest/v1/applications`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify(application)
+                });
+
+                if (!res.ok) {
+                    throw new Error('Application submit failed');
+                }
+
+                success.style.display = 'flex';
+                form.reset();
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Submitted!';
+                btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+
+                setTimeout(() => {
+                    btn.innerHTML = 'Submit Application &#10148;';
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    closeApplicationModal();
+                }, 2500);
+            } catch (err) {
+                error.style.display = 'flex';
+                btn.innerHTML = 'Submit Application &#10148;';
+                btn.style.background = '';
+                btn.disabled = false;
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeApplicationModal();
+            }
+        });
 
         function sendContactViaWhatsApp() {
             const name = document.getElementById('inputName').value.trim();
@@ -1034,47 +1399,57 @@
         // ========================
         // 9. TILT EFFECT ON RESOURCE CARDS
         // ========================
-        document.querySelectorAll('.resource-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-8px)`;
-            });
+        function initResourceTilt() {
+            document.querySelectorAll('.resource-card').forEach(card => {
+                if (card.dataset.tiltReady === 'true') return;
+                card.dataset.tiltReady = 'true';
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-8px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
             });
-        });
+        }
 
         // ========================
         // 10. RESOURCE FILTERS
         // ========================
         const filterButtons = document.querySelectorAll('.filter-btn');
-        const resourceItems = document.querySelectorAll('.resources-grid > div');
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const selectedFilter = button.getAttribute('data-filter');
-
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-
-                resourceItems.forEach(item => {
-                    const card = item.querySelector('.resource-card');
-                    const categories = (card?.getAttribute('data-category') || '').split(' ');
-                    const shouldShow = selectedFilter === 'all' || categories.includes(selectedFilter);
-
-                    item.classList.toggle('resource-hidden', !shouldShow);
-                });
+                applyActiveResourceFilter();
             });
         });
+
+        function applyActiveResourceFilter() {
+            const selectedFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
+            const resourceItems = document.querySelectorAll('.resources-grid > div');
+
+            resourceItems.forEach(item => {
+                const card = item.querySelector('.resource-card');
+                const categories = (card?.getAttribute('data-category') || '').split(' ');
+                const shouldShow = !card || selectedFilter === 'all' || categories.includes(selectedFilter);
+
+                item.classList.toggle('resource-hidden', !shouldShow);
+            });
+        }
 
         // ========================
         // 11. INITIAL LOAD
         // ========================
         window.addEventListener('load', () => {
             updateActiveNav();
+            loadResources();
+            loadPublications();
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

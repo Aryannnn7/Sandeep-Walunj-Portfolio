@@ -136,8 +136,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ========================
-// 7. CONTACT FORM HANDLER — Formspree
+// 7. CONTACT FORM HANDLER - Supabase
 // ========================
+const SUPABASE_URL = 'https://hnfochisjxnnmifbgxiq.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhuZm9jaGlzanhubm1pZmJneGlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTY5NDUsImV4cCI6MjA5NzYzMjk0NX0.Gc--qJVLfbkm5Ip9WXGN7Dy8e0v2buv-UKJZSPPzdF0';
+
 async function handleSubmit(e) {
     e.preventDefault();
 
@@ -146,11 +149,15 @@ async function handleSubmit(e) {
     const success = document.getElementById('formSuccess');
     const error = document.getElementById('formError');
 
-    const formId = form.querySelector('[name="_formspree_id"]').value.trim();
+    const name = document.getElementById('inputName').value.trim();
+    const email = document.getElementById('inputEmail').value.trim();
+    const topic = document.getElementById('inputTopic').value;
+    const subject = document.getElementById('inputSubject').value.trim();
+    const message = document.getElementById('inputMessage').value.trim();
 
-    if (!formId || formId === 'YOUR_FORM_ID') {
+    if (!name || !email || !topic || message.length < 10) {
         error.querySelector('span').textContent =
-            'Form ID not set yet. Follow the setup instructions inside the HTML file.';
+            'Please add your name, email, enquiry type and a short message.';
         error.style.display = 'flex';
         return;
     }
@@ -161,13 +168,27 @@ async function handleSubmit(e) {
     success.style.display = 'none';
     error.style.display = 'none';
 
-    const data = new FormData(form);
+    const enquiry = {
+        name,
+        email,
+        topic,
+        subject: subject || null,
+        message,
+        source: 'website_contact_form',
+        page_url: window.location.href,
+        user_agent: navigator.userAgent
+    };
 
     try {
-        const res = await fetch(`https://formspree.io/f/${formId}`, {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
             method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify(enquiry)
         });
 
         if (res.ok) {
